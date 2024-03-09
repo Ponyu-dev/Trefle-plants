@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Botanical Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="example_scientific_name">Cocos nucifera</string>
+    <string name="example_common_name">Coconut</string>
 </resources>
