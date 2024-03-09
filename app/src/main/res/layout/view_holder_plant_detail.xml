@@ -51,7 +51,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/cardConstraint"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/cardConstraint"
-                app:layout_constraintTop_toBottomOf="@+id/imagePlant" />
+                app:layout_constraintTop_toBottomOf="@+id/imagePlant"
+                style="@style/Widget.MaterialComponents.TextView.H1"/>
 
             <TextView
                 android:id="@+id/textViewCommonName"
@@ -65,7 +66,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/cardConstraint"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/cardConstraint"
-                app:layout_constraintTop_toBottomOf="@+id/textViewScientificName" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewScientificName"
+                style="@style/Widget.MaterialComponents.TextView.Subtitle_1"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

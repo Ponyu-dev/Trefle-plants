@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <style name="Widget.MaterialComponents.TextView.H1">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAppearance">@style/roboto_bold.h3_headline</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextView.Subtitle_1">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textAppearance">@style/roboto.subtitle_1</item>
+    </style>
+
+    <style name="roboto_bold.h3_headline">
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">28sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="roboto.subtitle_1">
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.03</item>
+    </style>
+
+    <style name="roboto">
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="roboto_bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+</resources>
