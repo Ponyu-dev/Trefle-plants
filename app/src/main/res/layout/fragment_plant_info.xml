@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
@@ -7,15 +7,69 @@
     android:layout_height="match_parent"
     tools:context=".fragments.plant_detail.PlantInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="@string/hello_blank_fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutPlantInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMainPlantInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageViewPlant"
+                android:layout_width="0dp"
+                android:layout_height="256dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/textViewPlantScientificName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/textViewPlantScientificName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/example_scientific_name"
+                app:layout_constraintBottom_toTopOf="@+id/textViewPlantCommonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewPlant"
+                style="@style/Widget.MaterialComponents.TextView.H1"/>
+
+            <TextView
+                android:id="@+id/textViewPlantCommonName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/example_common_name"
+                app:layout_constraintBottom_toTopOf="@+id/textViewPlantFirstPublish"
+                app:layout_constraintEnd_toEndOf="@+id/textViewPlantScientificName"
+                app:layout_constraintStart_toStartOf="@+id/textViewPlantScientificName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPlantScientificName"
+                style="@style/Widget.MaterialComponents.TextView.Subtitle_1"/>
+
+            <TextView
+                android:id="@+id/textViewPlantFirstPublish"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/example_first_publish"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewPlant"
+                app:layout_constraintEnd_toEndOf="@+id/textViewPlantScientificName"
+                app:layout_constraintStart_toStartOf="@+id/textViewPlantScientificName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPlantCommonName"
+                style="@style/Widget.MaterialComponents.TextView.Subtitle_2"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

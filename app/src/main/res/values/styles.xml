@@ -13,6 +13,11 @@
         <item name="android:textAppearance">@style/roboto.subtitle_1</item>
     </style>
 
+    <style name="Widget.MaterialComponents.TextView.Subtitle_2">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textAppearance">@style/roboto.subtitle_2</item>
+    </style>
+
     <style name="roboto_bold.h3_headline">
         <item name="android:textSize">24sp</item>
         <item name="lineHeight">28sp</item>
@@ -25,11 +30,20 @@
         <item name="android:letterSpacing">0.03</item>
     </style>
 
+    <style name="roboto.subtitle_2">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">22sp</item>
+    </style>
+
     <style name="roboto">
         <item name="fontFamily">@font/roboto</item>
     </style>
 
     <style name="roboto_bold">
         <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="roboto_italic">
+        <item name="fontFamily">@font/roboto_italic</item>
     </style>
 </resources>
