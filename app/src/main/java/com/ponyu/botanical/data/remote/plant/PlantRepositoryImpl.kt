@@ -7,7 +7,7 @@ import javax.inject.Inject
 class PlantRepositoryImpl @Inject constructor(
     private val service: PlantsService
 ) : PlantRepository {
-    override suspend fun loadPlant(plantId: Int): Pair<Boolean, PlantDetail?> {
+    override suspend fun loadPlant(plantId: Int): Pair<Boolean, PlantInfo?> {
         return try {
             val listPlants = service.getPlant(plantId)
             Pair(true, listPlants)

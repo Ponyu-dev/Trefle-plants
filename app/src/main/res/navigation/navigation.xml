@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/plantsFragment">
+    app:startDestination="@id/plantInfoFragment">
 
     <fragment
         android:id="@+id/plantsFragment"
@@ -11,5 +11,10 @@
         android:label="personal_info_fragment"
         tools:layout="@layout/fragment_plants" >
     </fragment>
+    <fragment
+        android:id="@+id/plantInfoFragment"
+        android:name="com.ponyu.botanical.fragments.plant_detail.PlantInfoFragment"
+        android:label="fragment_plant_info"
+        tools:layout="@layout/fragment_plant_info" />
 
 </navigation>
