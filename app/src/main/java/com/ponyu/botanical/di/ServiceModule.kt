@@ -1,6 +1,8 @@
 package com.ponyu.botanical.di
 
-import com.ponyu.botanical.data.remote.PlantsRepositoryImpl
+import com.ponyu.botanical.data.remote.plant.PlantRepositoryImpl
+import com.ponyu.botanical.data.remote.plants.PlantsRepositoryImpl
+import com.ponyu.botanical.domain.PlantRepository
 import com.ponyu.botanical.domain.PlantsRepository
 import dagger.Binds
 import dagger.Module
@@ -12,6 +14,8 @@ import dagger.hilt.android.components.ViewModelComponent
 abstract class ServiceModule {
 
     @Binds
-    abstract fun providePlantsRepository(impl: PlantsRepositoryImpl) : PlantsRepository
+    abstract fun bindPlantsRepository(impl: PlantsRepositoryImpl) : PlantsRepository
 
+    @Binds
+    abstract fun bindPlantRepository(impl: PlantRepositoryImpl) : PlantRepository
 }
