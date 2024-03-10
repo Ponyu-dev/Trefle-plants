@@ -2,7 +2,7 @@ package com.ponyu.botanical.fragments.plants
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.ponyu.botanical.data.remote.PlantData
+import com.ponyu.botanical.data.remote.plants.PlantData
 import com.ponyu.botanical.domain.PlantsRepository
 import com.ponyu.botanical.fragments.plants.adapter.PlantItem
 import dagger.hilt.android.lifecycle.HiltViewModel

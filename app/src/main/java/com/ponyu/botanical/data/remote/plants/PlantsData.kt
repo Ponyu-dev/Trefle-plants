@@ -1,4 +1,4 @@
-package com.ponyu.botanical.data.remote
+package com.ponyu.botanical.data.remote.plants
 
 import com.google.gson.annotations.SerializedName
 

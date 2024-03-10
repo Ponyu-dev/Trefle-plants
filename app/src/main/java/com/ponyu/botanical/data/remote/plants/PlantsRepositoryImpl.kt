@@ -1,5 +1,6 @@
-package com.ponyu.botanical.data.remote
+package com.ponyu.botanical.data.remote.plants
 
+import com.ponyu.botanical.data.remote.PlantsService
 import com.ponyu.botanical.domain.PlantsRepository
 import javax.inject.Inject
 
