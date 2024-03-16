@@ -5,7 +5,17 @@
 
     <style name="Widget.MaterialComponents.TextView.H1">
         <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:textAppearance">@style/roboto_bold.h3_headline</item>
+        <item name="android:textAppearance">@style/roboto_bold.h1_headline</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextView.H2">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAppearance">@style/roboto_bold.h2_headline</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextView.H3">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAppearance">@style/roboto.h3_headline</item>
     </style>
 
     <style name="Widget.MaterialComponents.TextView.Subtitle_1">
@@ -18,9 +28,31 @@
         <item name="android:textAppearance">@style/roboto.subtitle_2</item>
     </style>
 
-    <style name="roboto_bold.h3_headline">
+    <style name="Widget.MaterialComponents.TextView.Body_1">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textAppearance">@style/roboto.body_1</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextView.Bold_Body_1">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textAppearance">@style/roboto_bold.body_1</item>
+    </style>
+
+    <style name="roboto_bold.h1_headline">
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">28sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="roboto_bold.h2_headline">
         <item name="android:textSize">24sp</item>
         <item name="lineHeight">28sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="roboto.h3_headline">
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
         <item name="android:letterSpacing">0.01</item>
     </style>
 
@@ -33,6 +65,18 @@
     <style name="roboto.subtitle_2">
         <item name="android:textSize">16sp</item>
         <item name="lineHeight">22sp</item>
+    </style>
+
+    <style name="roboto_bold.body_1">
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.03</item>
+    </style>
+
+    <style name="roboto.body_1">
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.03</item>
     </style>
 
     <style name="roboto">

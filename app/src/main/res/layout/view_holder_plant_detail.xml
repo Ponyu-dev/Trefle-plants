@@ -52,7 +52,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/cardConstraint"
                 app:layout_constraintTop_toBottomOf="@+id/imagePlant"
-                style="@style/Widget.MaterialComponents.TextView.H1"/>
+                style="@style/Widget.MaterialComponents.TextView.H2"/>
 
             <TextView
                 android:id="@+id/textViewCommonName"
