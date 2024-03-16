@@ -10,7 +10,7 @@
     <string name="flowers">flowers</string>
     <string name="foliage">foliage</string>
     <string name="fruits">fruits</string>
-    <string name="unknown">unknown</string>
+    <string name="unknown">Unknown</string>
     <string name="visible">Visible</string>
     <string name="invisible">Invisible</string>
 
@@ -25,7 +25,7 @@
     <string name="example_common_name">Coconut</string>
     <string name="example_first_publish">L. 1753 - Sp. Pl.: 1188 (1753)</string>
     <string name="example_observations">C. Malesia to SW. Pacific</string>
-    <string name="example_edible_part_s_title">Edible part(s)</string>
+    <string name="edible_part_s_title">Edible part(s)</string>
 
     <string name="example_edible_part_s">roots, stem, fruits, seeds</string>
 </resources>

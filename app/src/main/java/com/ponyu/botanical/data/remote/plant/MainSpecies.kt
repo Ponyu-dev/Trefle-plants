@@ -30,7 +30,7 @@ data class MainSpecies(
     /*@SerializedName("duration")
     val duration: array of strings*/
     @SerializedName("edible_part")
-    val ediblePart: List<String>,
+    val ediblePart: List<String?>?,
     @SerializedName("images")
     val images: Images,
     @SerializedName("distribution")

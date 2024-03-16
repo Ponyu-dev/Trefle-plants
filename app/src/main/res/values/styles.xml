@@ -10,7 +10,7 @@
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
-        <item name="android:background">?attr/colorTertiary</item>
+        <item name="android:background">?attr/colorSurfaceVariant</item>
     </style>
 
     <style name="Widget.MaterialComponents.TextView.H1">
@@ -25,6 +25,11 @@
 
     <style name="Widget.MaterialComponents.TextView.H3">
         <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAppearance">@style/roboto.h3_headline</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextView.H3.Error">
+        <item name="android:textColor">?attr/colorError</item>
         <item name="android:textAppearance">@style/roboto.h3_headline</item>
     </style>
 

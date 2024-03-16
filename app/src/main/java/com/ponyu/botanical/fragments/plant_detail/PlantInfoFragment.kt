@@ -15,6 +15,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
+import com.google.android.material.chip.Chip
 import com.ponyu.botanical.R
 import com.ponyu.botanical.data.remote.plant.MainSpecies
 import com.ponyu.botanical.databinding.FragmentPlantInfoBinding
@@ -49,6 +50,7 @@ class PlantInfoFragment : Fragment() {
                 plantInfoViewModel.plantInfo.collect { plantInfo ->
                     plantInfo?.data?.mainSpecies?.let { mainSpecies ->
                         updateMainInfo(mainSpecies)
+                        updateEdiblePart(mainSpecies.ediblePart)
                     }
                 }
             }
@@ -77,6 +79,28 @@ class PlantInfoFragment : Fragment() {
                 .error(R.drawable.image_not_found)
                 .centerCrop()
                 .into(imageViewPlant)
+        }
+    }
+
+    private fun updateEdiblePart(
+        ediblePart: List<String?>?
+    ){
+        withBinding {
+            if (ediblePart.isNullOrEmpty()) {
+                textViewNotEdibleParts.visibility = View.VISIBLE
+            }
+            else {
+                textViewNotEdibleParts.visibility = View.GONE
+
+                ediblePart.forEach {
+                    Chip(context).apply {
+                        text = it ?: getString(R.string.unknown)
+                        isClickable = false
+                        isCheckable = false
+                        chipGroupEdibleParts.addView(this)
+                    }
+                }
+            }
         }
     }
 
