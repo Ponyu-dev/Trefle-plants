@@ -1,17 +1,13 @@
 package com.ponyu.botanical.fragments.plant_detail
 
-import android.graphics.Paint.Style
 import android.graphics.Typeface
 import android.os.Bundle
-import android.text.EmojiConsistency
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.style.StyleSpan
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -19,12 +15,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.ponyu.botanical.R
 import com.ponyu.botanical.data.remote.plant.MainSpecies
 import com.ponyu.botanical.databinding.FragmentPlantInfoBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -52,9 +46,9 @@ class PlantInfoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                plantInfoViewModel.plantInfo.collect {
-                    it?.data?.mainSpecies?.let {
-                        updateMainInfo(it)
+                plantInfoViewModel.plantInfo.collect { plantInfo ->
+                    plantInfo?.data?.mainSpecies?.let { mainSpecies ->
+                        updateMainInfo(mainSpecies)
                     }
                 }
             }
@@ -69,6 +63,7 @@ class PlantInfoFragment : Fragment() {
         withBinding {
             textViewPlantScientificName.text = mainSpecies.scientificName
             textViewPlantCommonName.text = mainSpecies.commonName
+            textViewObservations.text = "\uD83C\uDF0D ${mainSpecies.observations}"
 
             val spannable1 = SpannableString("\uD83D\uDCD7 ${mainSpecies.author} ${mainSpecies.year} - ")
             val spannable2 = SpannableString(mainSpecies.bibliography)

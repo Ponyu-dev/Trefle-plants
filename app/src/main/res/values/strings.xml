@@ -1,8 +1,31 @@
 <resources>
     <string name="app_name">Botanical Application</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="specifications">⛭ Specifications</string>
+    <string name="growing">🌱 Growing</string>
+    <string name="height">Height:</string>
+    <string name="growth_habit">Growth habit:</string>
+    <string name="duration">Duration:</string>
+    <string name="edible_part_s">Edible part(s):</string>
+    <string name="average">cm average</string>
+    <string name="flowers">flowers</string>
+    <string name="foliage">foliage</string>
+    <string name="fruits">fruits</string>
+    <string name="unknown">unknown</string>
+    <string name="visible">Visible</string>
+    <string name="invisible">Invisible</string>
+
+    <string name="tooltip_scientific_name">The scientific name follows the Binomial nomenclature, and represents its genus and its species within the genus, resulting in a single worldwide name for each organism.</string>
+    <string name="tooltip_common_name">The usual common name, in english, of the species (if any).</string>
+    <string name="tooltip_first_publish">The first publication author(s) and year of a valid name of this species. </string>
+    <string name="tooltip_observations">Some habit observations on the species</string>
+    <string name="tooltip_edible_part">The plant edible part(s), if any.</string>
+    <string name="tooltip_specifications">Species is main characteristics</string>
+
     <string name="example_scientific_name">Cocos nucifera</string>
     <string name="example_common_name">Coconut</string>
-    <string name="example_first_publish">📗 L. 1753 - Sp. Pl.: 1188 (1753)</string>
+    <string name="example_first_publish">L. 1753 - Sp. Pl.: 1188 (1753)</string>
+    <string name="example_observations">C. Malesia to SW. Pacific</string>
+    <string name="example_edible_part_s_title">Edible part(s)</string>
+
+    <string name="example_edible_part_s">roots, stem, fruits, seeds</string>
 </resources>
