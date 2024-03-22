@@ -58,6 +58,8 @@ kapt {
 
 dependencies {
     implementation(libs.hilt.android)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     kapt(libs.hilt.android.compiler)
 
     implementation(libs.retrofit2.converter.gson)
