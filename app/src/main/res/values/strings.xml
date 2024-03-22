@@ -28,4 +28,9 @@
     <string name="edible_part_s_title">Edible part(s)</string>
 
     <string name="example_edible_part_s">roots, stem, fruits, seeds</string>
+    <string name="tab_title_specifications">Specifications</string>
+    <string name="tab_title_growth">Growth</string>
+    <string name="tab_title_images">Images</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

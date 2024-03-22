@@ -10,7 +10,11 @@
         android:name="com.ponyu.botanical.fragments.plants.PlantsFragment"
         android:label="personal_info_fragment"
         tools:layout="@layout/fragment_plants" >
+        <action
+            android:id="@+id/action_plantsFragment_to_plantInfoFragment"
+            app:destination="@id/plantInfoFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/plantInfoFragment"
         android:name="com.ponyu.botanical.fragments.plant_detail.PlantInfoFragment"

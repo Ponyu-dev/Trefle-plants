@@ -165,6 +165,40 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/dividerLinear2"
+            style="@style/Divider"
+            android:layout_marginVertical="8dp"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_title_specifications" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_title_growth" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_title_images" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerPlantDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:defaultNavHost="false"
+            app:navGraph="@navigation/navigation_plant_details"/>
+
     </LinearLayout>
 
 </ScrollView>
