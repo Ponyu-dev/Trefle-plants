@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
@@ -7,198 +8,150 @@
     android:layout_height="match_parent"
     tools:context=".fragments.plant_detail.PlantInfoFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintMainCommonInfo"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="top|center_vertical"
-        android:orientation="vertical"
         android:paddingHorizontal="8dp"
-        android:paddingVertical="8dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageViewPlant"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintCommonInfo"
+            app:layout_constraintEnd_toStartOf="@+id/constraintCommonInfo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_weight="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintCommonInfo"
+            app:shapeAppearanceOverlay="@style/RoundedSquare"
+            tools:src="@tools:sample/backgrounds/scenic" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imageViewPlant"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginEnd="16dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintHorizontal_weight="0.4"
-                app:layout_constraintBottom_toBottomOf="@+id/constraintCommonInfo"
-                app:layout_constraintEnd_toStartOf="@+id/constraintCommonInfo"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/constraintCommonInfo"
-                app:shapeAppearanceOverlay="@style/RoundedSquare"
-                tools:src="@tools:sample/backgrounds/scenic" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintCommonInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintHorizontal_weight="0.7"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageViewPlant"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
-
-                <TextView
-                    android:id="@+id/textViewPlantScientificName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/example_scientific_name"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewPlantCommonName"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    style="@style/Widget.MaterialComponents.TextView.H1"/>
-
-                <TextView
-                    android:id="@+id/textViewPlantCommonName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/example_common_name"
-                    app:layout_constraintBottom_toTopOf="@+id/dividerInfo1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewPlantScientificName"
-                    style="@style/Widget.MaterialComponents.TextView.H3"/>
-
-                <View
-                    android:id="@+id/dividerInfo1"
-                    style="@style/Divider"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewObservations"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewPlantCommonName" />
-
-                <TextView
-                    android:id="@+id/textViewObservations"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/example_observations"
-                    app:layout_constraintBottom_toTopOf="@+id/dividerInfo2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dividerInfo1"
-                    style="@style/Widget.MaterialComponents.TextView.Subtitle_2"/>
-
-                <View
-                    android:id="@+id/dividerInfo2"
-                    style="@style/Divider"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewPlantFirstPublish"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewObservations" />
-
-                <TextView
-                    android:id="@+id/textViewPlantFirstPublish"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/example_first_publish"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dividerInfo2"
-                    style="@style/Widget.MaterialComponents.TextView.Subtitle_2"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/dividerLinear1"
-            style="@style/Divider"
-            android:layout_marginBottom="8dp"/>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:id="@+id/constraintCommonInfo"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="8dp">
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPlant"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
-                android:id="@+id/textViewEdiblePartsTitle"
-                style="@style/Widget.MaterialComponents.TextView.H2"
+                android:id="@+id/textViewPlantScientificName"
+                style="@style/Widget.MaterialComponents.TextView.H1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/edible_part_s_title"
-                app:layout_constraintBottom_toTopOf="@+id/chipGroupEdibleParts"
+                android:text="@string/example_scientific_name"
+                app:layout_constraintBottom_toTopOf="@+id/textViewPlantCommonName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textViewNotEdibleParts"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroupEdibleParts"
+            <TextView
+                android:id="@+id/textViewPlantCommonName"
+                style="@style/Widget.MaterialComponents.TextView.H3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/textViewEdiblePartsTitle"
+                android:text="@string/example_common_name"
+                app:layout_constraintBottom_toTopOf="@+id/dividerInfo1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewEdiblePartsTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewPlantScientificName" />
+
+            <View
+                android:id="@+id/dividerInfo1"
+                style="@style/Divider"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/textViewObservations"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPlantCommonName" />
 
             <TextView
-                android:id="@+id/textViewNotEdibleParts"
-                style="@style/Widget.MaterialComponents.TextView.H3.Error"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewObservations"
+                style="@style/Widget.MaterialComponents.TextView.Subtitle_2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/unknown"
-                android:visibility="gone"
+                android:text="@string/example_observations"
+                app:layout_constraintBottom_toTopOf="@+id/dividerInfo2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dividerInfo1" />
+
+            <View
+                android:id="@+id/dividerInfo2"
+                style="@style/Divider"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/textViewPlantFirstPublish"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewObservations" />
+
+            <TextView
+                android:id="@+id/textViewPlantFirstPublish"
+                style="@style/Widget.MaterialComponents.TextView.Subtitle_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/example_first_publish"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/textViewEdiblePartsTitle"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textViewEdiblePartsTitle" />
-
+                app:layout_constraintTop_toBottomOf="@+id/dividerInfo2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
-            android:id="@+id/dividerLinear2"
-            style="@style/Divider"
-            android:layout_marginVertical="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayoutDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <View
+        android:id="@+id/dividerLinear1"
+        style="@style/Divider"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintMainCommonInfo" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_title_specifications" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerPlantDetails"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerLinear1"
+        app:navGraph="@navigation/navigation_plant_details" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_title_growth" />
+    <!--<fragment
+        android:id="@+id/nav_host_fragment_plant_details"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/navigation_plant_details"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerLinear1"/>-->
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_title_images" />
-        </com.google.android.material.tabs.TabLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu_plant_info" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerPlantDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:defaultNavHost="false"
-            app:navGraph="@navigation/navigation_plant_details"/>
-
-    </LinearLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_plant_specifications"
+        android:enabled="true"
+        android:icon="@drawable/icons_gear"
+        android:title="@string/tab_title_specifications" />
+    <item
+        android:id="@+id/navigation_plant_growth"
+        android:enabled="true"
+        android:icon="@drawable/icons_foliage"
+        android:title="@string/tab_title_growth" />
+    <item
+        android:id="@+id/navigation_plant_images"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/tab_title_images" />
+</menu>

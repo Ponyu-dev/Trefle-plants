@@ -14,11 +14,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
-import com.google.android.material.chip.Chip
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.ponyu.botanical.R
 import com.ponyu.botanical.data.remote.plant.MainSpecies
 import com.ponyu.botanical.databinding.FragmentPlantInfoBinding
@@ -27,39 +25,6 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PlantInfoFragment : Fragment() {
-    //TODO I think this can be moved somewhere, but I don't understand where.
-    private val navigationFromSpecifications by lazy {
-        mapOf(
-            getString(R.string.tab_title_growth) to R.id.action_plantSpecificationsFragment_to_plantGrowthFragment,
-            getString(R.string.tab_title_images) to R.id.action_plantSpecificationsFragment_to_plantImagesFragment
-        )
-    }
-
-    private val navigationFromGrowth by lazy {
-        mapOf(
-            getString(R.string.tab_title_specifications) to R.id.action_plantGrowthFragment_to_plantSpecificationsFragment,
-            getString(R.string.tab_title_images) to R.id.action_plantGrowthFragment_to_plantImagesFragment
-        )
-    }
-
-    private val navigationFromImages by lazy {
-        mapOf(
-            getString(R.string.tab_title_specifications) to R.id.action_plantImagesFragment_to_plantSpecificationsFragment,
-            getString(R.string.tab_title_growth) to R.id.action_plantImagesFragment_to_plantGrowthFragment
-        )
-    }
-
-    private val navigationTabs by lazy {
-        mapOf(
-            getString(R.string.tab_title_specifications) to navigationFromSpecifications,
-            getString(R.string.tab_title_growth) to navigationFromGrowth,
-            getString(R.string.tab_title_images) to navigationFromImages
-        )
-    }
-    //TODO I think this can be moved somewhere, but I don't understand where.
-
-    private var tabSelectedName = ""
-
     private var plantId: Int? = null
 
     // TODO: Maybe. Look at the documentation, maybe you can use something else.
@@ -68,10 +33,6 @@ class PlantInfoFragment : Fragment() {
     private var binding: FragmentPlantInfoBinding? = null
     private inline fun withBinding(block: FragmentPlantInfoBinding.() -> Unit) {
         binding?.block()
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -86,40 +47,22 @@ class PlantInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.fragmentContainerPlantDetails) as NavHostFragment
+        binding?.bottomNavigationView?.let {
+            NavigationUI.setupWithNavController(it, navHostFragment.navController)
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 plantInfoViewModel.plantInfo.collect { plantInfoData ->
                     plantInfoData?.mainSpecies?.let { mainSpecies ->
                         updateMainInfo(mainSpecies)
-                        updateEdiblePart(mainSpecies.ediblePart)
                     }
                 }
             }
         }
 
-        onTabSelected()
-
         plantInfoViewModel.loadPlantInfo(plantId ?: PLANT_ID_COCONUT)
-    }
-
-    private fun onTabSelected(){
-        withBinding {
-            tabSelectedName = getString(R.string.tab_title_specifications)
-
-            tabLayoutDetail.addOnTabSelectedListener(object : OnTabSelectedListener {
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    navigationTabs[tabSelectedName]
-                        ?.get(tab?.text)
-                        ?.let { tabTitle -> fragmentContainerPlantDetails.findNavController().navigate(tabTitle) }
-                    tabSelectedName = tab?.text.toString()
-                }
-
-                override fun onTabUnselected(tab: TabLayout.Tab?) { }
-
-                override fun onTabReselected(tab: TabLayout.Tab?) { }
-
-            })
-        }
     }
 
     private fun updateMainInfo(
@@ -145,28 +88,6 @@ class PlantInfoFragment : Fragment() {
         }
     }
 
-    private fun updateEdiblePart(
-        ediblePart: List<String?>?
-    ){
-        withBinding {
-            if (ediblePart.isNullOrEmpty()) {
-                textViewNotEdibleParts.visibility = View.VISIBLE
-            }
-            else {
-                textViewNotEdibleParts.visibility = View.GONE
-
-                ediblePart.forEach {
-                    Chip(context).apply {
-                        text = it ?: getString(R.string.unknown)
-                        isClickable = false
-                        isCheckable = false
-                        chipGroupEdibleParts.addView(this)
-                    }
-                }
-            }
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
@@ -175,7 +96,6 @@ class PlantInfoFragment : Fragment() {
     companion object {
 
         private const val PLANT_ID_COCONUT = 236068
-        private const val TAG = "PlantInfoFragment"
         private const val ARG_PLANT_ID = "plantId"
 
         /**

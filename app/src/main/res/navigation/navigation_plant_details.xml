@@ -3,43 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_plant_details"
-    app:startDestination="@id/plantSpecificationsFragment">
+    app:startDestination="@id/navigation_plant_specifications">
 
     <fragment
-        android:id="@+id/plantSpecificationsFragment"
+        android:id="@+id/navigation_plant_specifications"
         android:name="com.ponyu.botanical.fragments.plant_detail.specifications.PlantSpecificationsFragment"
         android:label="fragment_plant_specifications"
         tools:layout="@layout/fragment_plant_specifications" >
-        <action
-            android:id="@+id/action_plantSpecificationsFragment_to_plantGrowthFragment"
-            app:destination="@id/plantGrowthFragment" />
-        <action
-            android:id="@+id/action_plantSpecificationsFragment_to_plantImagesFragment"
-            app:destination="@id/plantImagesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/plantGrowthFragment"
+        android:id="@+id/navigation_plant_growth"
         android:name="com.ponyu.botanical.fragments.plant_detail.growth.PlantGrowthFragment"
         android:label="fragment_plant_growth"
         tools:layout="@layout/fragment_plant_growth" >
-        <action
-            android:id="@+id/action_plantGrowthFragment_to_plantSpecificationsFragment"
-            app:destination="@id/plantSpecificationsFragment" />
-        <action
-            android:id="@+id/action_plantGrowthFragment_to_plantImagesFragment"
-            app:destination="@id/plantImagesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/plantImagesFragment"
+        android:id="@+id/navigation_plant_images"
         android:name="com.ponyu.botanical.fragments.plant_detail.images.PlantImagesFragment"
         android:label="fragment_plant_images"
         tools:layout="@layout/fragment_plant_images" >
-        <action
-            android:id="@+id/action_plantImagesFragment_to_plantSpecificationsFragment"
-            app:destination="@id/plantSpecificationsFragment" />
-        <action
-            android:id="@+id/action_plantImagesFragment_to_plantGrowthFragment"
-            app:destination="@id/plantGrowthFragment" />
     </fragment>
 
 </navigation>

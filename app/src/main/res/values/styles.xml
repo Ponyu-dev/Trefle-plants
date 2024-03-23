@@ -48,6 +48,17 @@
         <item name="android:textAppearance">@style/roboto.body_1</item>
     </style>
 
+    <style name="Widget.MaterialComponents.TextView.Body_2">
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textAppearance">@style/roboto.body_2</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextView.Body_1.Drawable">
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="drawableTint">?attr/colorPrimary</item>
+    </style>
+
     <style name="Widget.MaterialComponents.TextView.Bold_Body_1">
         <item name="android:textColor">?attr/colorSecondary</item>
         <item name="android:textAppearance">@style/roboto_bold.body_1</item>
@@ -90,6 +101,12 @@
 
     <style name="roboto.body_1">
         <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.03</item>
+    </style>
+
+    <style name="roboto.body_2">
+        <item name="android:textSize">22sp</item>
         <item name="lineHeight">24sp</item>
         <item name="android:letterSpacing">0.03</item>
     </style>
