@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class Foliage(
     @SerializedName("texture")
-    val texture: String,
+    val texture: String?,
     @SerializedName("color")
-    val color: List<String>,
+    val color: List<String?>?,
     @SerializedName("leaf_retention")
-    val leafRetention: Boolean
+    val leafRetention: Boolean?
 )

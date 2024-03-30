@@ -2,17 +2,20 @@
     <string name="app_name">Botanical Application</string>
     <string name="specifications">⛭ Specifications</string>
     <string name="growing">🌱 Growing</string>
-    <string name="height">Height:</string>
-    <string name="growth_habit">Growth habit:</string>
-    <string name="duration">Duration:</string>
     <string name="edible_part_s">Edible part(s):</string>
-    <string name="average">cm average</string>
-    <string name="flowers"> %1$s, %2$s flowers</string>
-    <string name="foliage"> %1$s, %2$s foliage</string>
-    <string name="fruits"> %1$s, %2$s fruits</string>
+    <string name="flowers"> flowers</string>
+    <string name="foliage"> foliage</string>
+    <string name="fruits"> fruits</string>
     <string name="unknown"><font color ="colorSurfaceVariant"><u>Unknown</u></font></string>
     <string name="visible">Visible</string>
     <string name="invisible">Invisible</string>
+
+    <string name="ligneous_type">Ligneous type: %1$s</string>
+    <string name="average_height">Average height: %1$s cm.</string>
+    <string name="maximum_height">Maximum height: %1$s cm.</string>
+    <string name="nitrogen_fixation">Nitrogen fixation: %1$s</string>
+    <string name="shape_and_orientation">Shape and orientation: %1$s</string>
+    <string name="toxicity">Toxicity: %1$s</string>
 
     <string name="tooltip_scientific_name">The scientific name follows the Binomial nomenclature, and represents its genus and its species within the genus, resulting in a single worldwide name for each organism.</string>
     <string name="tooltip_common_name">The usual common name, in english, of the species (if any).</string>

@@ -24,29 +24,11 @@ class PlantInfoViewModel @Inject constructor (
     private val _plantInfo = MutableStateFlow<PlantInfoData?>(null)
     val plantInfo = _plantInfo.asStateFlow()
 
-    private val _specifications = MutableStateFlow<Specifications?>(null)
-    val specifications = _specifications.asStateFlow()
-
-    private val _flowerInfo = MutableStateFlow<Flower?>(null)
-    val flowerInfo = _flowerInfo.asStateFlow()
-
-    private val _foliageInfo = MutableStateFlow<Foliage?>(null)
-    val foliageInfo = _foliageInfo.asStateFlow()
-
-    private val _fruitOrSeedInfo = MutableStateFlow<FruitOrSeed?>(null)
-    val fruitOrSeedInfo = _fruitOrSeedInfo.asStateFlow()
-
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     fun loadPlantInfo(plantId: Int) {
         viewModelScope.launch {
             val pairResult = plantInfoRepository.loadPlant(plantId)
             _plantInfo.value = pairResult.second?.data
-
-            _specifications.value = _plantInfo.value?.mainSpecies?.specifications
-
-            _flowerInfo.value = _plantInfo.value?.mainSpecies?.flower
-            _foliageInfo.value = _plantInfo.value?.mainSpecies?.foliage
-            _fruitOrSeedInfo.value = _plantInfo.value?.mainSpecies?.fruitOrSeed
         }
     }
 
