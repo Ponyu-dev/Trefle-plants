@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayoutPlantImages"
@@ -7,16 +8,159 @@
     android:layout_height="match_parent"
     tools:context=".fragments.plant_detail.images.PlantImagesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView3"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Images"
-        android:textAlignment="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="top"
+         android:orientation="vertical"
+         android:padding="8dp">
+
+         <TextView
+             android:id="@+id/textViewPlantImagesTitle"
+             style="@style/Widget.MaterialComponents.TextView.H1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/title_images"
+             android:textAlignment="center" />
+
+         <TextView
+             android:id="@+id/textViewPlantImagesFlower"
+             style="@style/Widget.MaterialComponents.TextView.H3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/title_flower"
+             android:textAlignment="center"/>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerViewPlantImageFlower"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:scrollbarStyle="outsideInset"
+             android:scrollbars="horizontal"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+         <View
+             android:id="@+id/dividerLinear1"
+             style="@style/Divider"
+             android:layout_marginVertical="8dp" />
+
+         <TextView
+             android:id="@+id/textViewPlantImagesFruit"
+             style="@style/Widget.MaterialComponents.TextView.H3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/title_fruit"
+             android:textAlignment="center"/>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerViewPlantImageFruit"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:scrollbarStyle="outsideInset"
+             android:scrollbars="horizontal"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+         <View
+             android:id="@+id/dividerLinear2"
+             style="@style/Divider"
+             android:layout_marginVertical="8dp" />
+
+         <TextView
+             android:id="@+id/textViewPlantImagesHabit"
+             style="@style/Widget.MaterialComponents.TextView.H3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/title_habit"
+             android:textAlignment="center"/>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerViewPlantImageHabit"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:scrollbarStyle="outsideInset"
+             android:scrollbars="horizontal"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+         <View
+             android:id="@+id/dividerLinear3"
+             style="@style/Divider"
+             android:layout_marginVertical="8dp" />
+
+         <TextView
+             android:id="@+id/textViewPlantImagesLeaf"
+             style="@style/Widget.MaterialComponents.TextView.H3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/title_leaf"
+             android:textAlignment="center"/>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerViewPlantImageLeaf"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:scrollbarStyle="outsideInset"
+             android:scrollbars="horizontal"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+         <View
+             android:id="@+id/dividerLinear4"
+             style="@style/Divider"
+             android:layout_marginVertical="8dp" />
+
+         <TextView
+             android:id="@+id/textViewPlantImagesBark"
+             style="@style/Widget.MaterialComponents.TextView.H3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/title_bark"
+             android:textAlignment="center"/>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerViewPlantImageBark"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:scrollbarStyle="outsideInset"
+             android:scrollbars="horizontal"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+         <View
+             android:id="@+id/dividerLinear5"
+             style="@style/Divider"
+             android:layout_marginVertical="8dp" />
+
+         <TextView
+             android:id="@+id/textViewPlantImagesOther"
+             style="@style/Widget.MaterialComponents.TextView.H3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/title_other"
+             android:textAlignment="center"/>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerViewPlantImageOther"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:scrollbarStyle="outsideInset"
+             android:scrollbars="horizontal"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+     </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

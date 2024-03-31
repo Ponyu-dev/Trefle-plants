@@ -7,6 +7,7 @@ import com.ponyu.botanical.data.remote.plant.FruitOrSeed
 import com.ponyu.botanical.data.remote.plant.PlantInfoData
 import com.ponyu.botanical.data.remote.plant.Specifications
 import com.ponyu.botanical.domain.PlantRepository
+import com.ponyu.botanical.fragments.plant_detail.images.PlantImage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +30,8 @@ class PlantInfoViewModel @Inject constructor (
         viewModelScope.launch {
             val pairResult = plantInfoRepository.loadPlant(plantId)
             _plantInfo.value = pairResult.second?.data
+
+
         }
     }
 

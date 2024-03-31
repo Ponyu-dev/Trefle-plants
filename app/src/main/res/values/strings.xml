@@ -34,4 +34,11 @@
     <string name="tab_title_specifications">Specifications</string>
     <string name="tab_title_growth">Growth</string>
     <string name="tab_title_images">Images</string>
+    <string name="title_images">Images</string>
+    <string name="title_flower">Flower</string>
+    <string name="title_fruit">Fruit</string>
+    <string name="title_habit">Habit</string>
+    <string name="title_leaf">Leaf</string>
+    <string name="title_bark">Bark</string>
+    <string name="title_other">Other</string>
 </resources>
