@@ -6,6 +6,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.style.StyleSpan
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -46,6 +47,8 @@ class PlantInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        plantId = arguments?.getInt(ARG_PLANT_ID)
 
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragmentContainerPlantDetails) as NavHostFragment
         binding?.bottomNavigationView?.let {
@@ -94,23 +97,8 @@ class PlantInfoFragment : Fragment() {
     }
 
     companion object {
-
         private const val PLANT_ID_COCONUT = 236068
         private const val ARG_PLANT_ID = "plantId"
-
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param plantIdArg Parameter for .
-         * @return A new instance of fragment PlantInfoFragment.
-         */
-        @JvmStatic
-        fun newInstance(plantIdArg: Int) =
-            PlantInfoFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_PLANT_ID, plantIdArg)
-                }
-            }
+        private const val TAG = "PlantInfoFragment"
     }
 }

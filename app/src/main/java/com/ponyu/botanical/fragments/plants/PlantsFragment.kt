@@ -10,7 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import com.ponyu.botanical.R
 import com.ponyu.botanical.databinding.FragmentPlantsBinding
+import com.ponyu.botanical.fragments.plant_detail.PlantInfoFragment
 import com.ponyu.botanical.fragments.plants.adapter.PlantsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -27,7 +30,10 @@ class PlantsFragment : Fragment() {
     }
 
     private val plantsAdapter = PlantsAdapter {
-        Log.d(TAG, "Onclick id = $it")
+        findNavController().navigate(
+            R.id.action_plantsFragment_to_plantInfoFragment,
+            Bundle().apply { putInt("plantId", it) }
+        )
     }
 
     override fun onCreateView(
@@ -45,7 +51,6 @@ class PlantsFragment : Fragment() {
             viewLifecycleOwner.lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
                     listPlantsViewModel.listPlants.collect {
-                        Log.d(TAG, "Plants count = ${it.size}")
                         plantsAdapter.submitList(it)
                     }
                 }
