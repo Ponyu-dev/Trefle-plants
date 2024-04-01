@@ -49,6 +49,12 @@
              android:scrollbars="horizontal"
              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+         <ViewStub
+             android:id="@+id/viewStubPlantImageFlower"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout="@layout/no_data_view" />
+
          <View
              android:id="@+id/dividerLinear1"
              style="@style/Divider"
@@ -70,6 +76,12 @@
              android:scrollbarStyle="outsideInset"
              android:scrollbars="horizontal"
              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+         <ViewStub
+             android:id="@+id/viewStubPlantImageFruit"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout="@layout/no_data_view" />
 
          <View
              android:id="@+id/dividerLinear2"
@@ -93,6 +105,12 @@
              android:scrollbars="horizontal"
              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+         <ViewStub
+             android:id="@+id/viewStubPlantImageHabit"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout="@layout/no_data_view" />
+
          <View
              android:id="@+id/dividerLinear3"
              style="@style/Divider"
@@ -114,6 +132,12 @@
              android:scrollbarStyle="outsideInset"
              android:scrollbars="horizontal"
              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+         <ViewStub
+             android:id="@+id/viewStubPlantImageLeaf"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout="@layout/no_data_view" />
 
          <View
              android:id="@+id/dividerLinear4"
@@ -137,6 +161,12 @@
              android:scrollbars="horizontal"
              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+         <ViewStub
+             android:id="@+id/viewStubPlantImageBark"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout="@layout/no_data_view" />
+
          <View
              android:id="@+id/dividerLinear5"
              style="@style/Divider"
@@ -158,6 +188,12 @@
              android:scrollbarStyle="outsideInset"
              android:scrollbars="horizontal"
              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+         <ViewStub
+             android:id="@+id/viewStubPlantImageOther"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout="@layout/no_data_view" />
 
      </LinearLayout>
 

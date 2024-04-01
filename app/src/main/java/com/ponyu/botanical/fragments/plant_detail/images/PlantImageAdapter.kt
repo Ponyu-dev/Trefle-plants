@@ -9,7 +9,7 @@ import com.ponyu.botanical.data.remote.plant.ImagesData
 import com.ponyu.botanical.databinding.PlantItemImageBinding
 
 class PlantImageAdapter(
-    private val images: List<ImagesData>,
+    private val images: List<ImagesData?>,
     private val onClick: (ImagesData) -> Unit
 ) : RecyclerView.Adapter<PlantImageAdapter.PlantImageViewHolder>() {
     inner class PlantImageViewHolder(
@@ -33,7 +33,7 @@ class PlantImageAdapter(
     }
 
     override fun onBindViewHolder(holder: PlantImageViewHolder, position: Int) {
-        holder.bind(images[position])
+        images[position]?.let { holder.bind(it) }
     }
 
     override fun getItemCount() = images.size

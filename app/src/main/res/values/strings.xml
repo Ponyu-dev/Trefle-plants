@@ -41,4 +41,5 @@
     <string name="title_leaf">Leaf</string>
     <string name="title_bark">Bark</string>
     <string name="title_other">Other</string>
+    <string name="no_data_view">There is no data to display</string>
 </resources>
