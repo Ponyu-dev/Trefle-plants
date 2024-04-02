@@ -6,7 +6,7 @@ This project was created for the thesis project upon completion of the OTUS (Bas
 The free [Trefle API](https://trefle.io) is used for this.
 
 ### An example of using the program.
-![flow](/images/github_video.webm)
+![flow](/images/github_video.gif)
 
 ### Features
 - Search by plant name
