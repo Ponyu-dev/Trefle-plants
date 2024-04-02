@@ -1,10 +1,13 @@
 package com.ponyu.botanical.fragments.plants
 
-import android.app.Activity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import com.ponyu.botanical.R
@@ -19,23 +22,38 @@ import com.ponyu.botanical.util.ext.executeWithAction
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class PlantsFragment : Fragment() {
     private lateinit var binding: FragmentPlantsBinding
     private val listPlantsViewModel: ListPlantsViewModel by viewModels()
 
-    @Inject
-    lateinit var plantsAdapter: PlantsAdapter
+    private val plantsAdapter = PlantsAdapter {
+        findNavController().navigate(
+            R.id.action_plantsFragment_to_plantInfoFragment,
+            Bundle().apply { putInt("plantId", it) }
+        )
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
-        binding = DataBindingUtil.setContentView(this.activity as Activity, R.layout.fragment_plants)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_plants,
+            container,
+            false
+        )
+
+
         binding.btnRetry.setOnClickListener { plantsAdapter.retry() }
         setAdapter()
         collectLast(listPlantsViewModel.plantItemsUiStates, ::setUsers)
+
+        return binding.root
     }
 
     private fun setAdapter() {

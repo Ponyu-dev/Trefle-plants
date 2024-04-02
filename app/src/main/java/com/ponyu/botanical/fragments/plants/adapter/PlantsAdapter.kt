@@ -8,10 +8,9 @@ import androidx.databinding.DataBindingUtil.inflate
 import com.ponyu.botanical.R
 import com.ponyu.botanical.databinding.ViewHolderPlantDetailBinding
 import com.ponyu.botanical.ui.PlantItemUiState
-import javax.inject.Inject
 
-class PlantsAdapter @Inject constructor (
-
+class PlantsAdapter (
+    private val onClick: (Int) -> Unit
 ) : PagingDataAdapter<PlantItemUiState, PlantViewHolder>(Comparator) {
 
     override fun onCreateViewHolder(
@@ -24,7 +23,7 @@ class PlantsAdapter @Inject constructor (
             false
         )
 
-        return PlantViewHolder(binding)
+        return PlantViewHolder(binding, onClick)
     }
 
     override fun onBindViewHolder(viewHolderPlant: PlantViewHolder, position: Int) {
