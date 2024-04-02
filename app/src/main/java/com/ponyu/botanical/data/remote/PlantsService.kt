@@ -19,14 +19,14 @@ interface PlantsService {
     @GET("/api/v1/plants?token=${BuildConfig.TREFLE_API_KEY}")
     suspend fun getPlants(
         @Query("page") page: Int,
-        //@QueryMap options: Map<String, String>
+        @QueryMap options: Map<String, String>
     ) : PlantsResponse
 
     @GET("/api/v1/plants/search?token=${BuildConfig.TREFLE_API_KEY}")
     suspend fun searchPlants(
         @Query("page") page: Int,
         @Query("q") q: String,
-        //@QueryMap options: Map<String, String>
+        @QueryMap options: Map<String, String>
     ) : PlantsResponse
 
     /**

@@ -15,11 +15,11 @@ class PlantsPagingDataSource(
         val page = params.key ?: STARTING_PAGE_INDEX
         try {
             val response = when {
-                plantFilterModel.searchQuery.isNullOrEmpty() -> plantsService.getPlants(page)
-                else -> plantsService.searchPlants(page, plantFilterModel.searchQuery)
+                plantFilterModel.searchQuery.isNullOrEmpty() -> plantsService.getPlants(page, plantFilterModel.options)
+                else -> plantsService.searchPlants(page, plantFilterModel.searchQuery, plantFilterModel.options)
             }
 
-            //TODO it is necessary to add so that nextkey does not exceed the last page
+            //TODO it is necessary to add so that nextKey does not exceed the last page
             // this can be found in the model "links": {
             //        "first": "/api/v1/species?page=1",
             //        "last": "/api/v1/species?page=20865",

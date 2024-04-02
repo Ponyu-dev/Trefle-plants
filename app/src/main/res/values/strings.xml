@@ -10,8 +10,13 @@
     <string name="visible">Visible</string>
     <string name="invisible">Invisible</string>
     <string name="retry">Retry</string>
+    <string name="action_apply">Apply</string>
+    <string name="action_rest_all">Rest All</string>
     <string name="something_went_wrong">Something went wrong.</string>
-
+    <string name="countries_filter_title">Sort and Filter</string>
+    <string name="filter_sheet_label_sort_by">Sort by</string>
+    <string name="filter_sheet_sort_ascending">Ascending</string>
+    <string name="filter_sheet_sort_descending">Descending</string>
     <string name="ligneous_type">Ligneous type: %1$s</string>
     <string name="average_height">Average height: %1$s cm.</string>
     <string name="maximum_height">Maximum height: %1$s cm.</string>
@@ -44,4 +49,10 @@
     <string name="title_bark">Bark</string>
     <string name="title_other">Other</string>
     <string name="no_data_view">There is no data to display</string>
+    <string name="sort_order_year">Year</string>
+    <string name="sort_order_name">Name</string>
+    <string name="sort_order_rank">Rank</string>
+    <string name="filter_by">Filter by</string>
+    <string name="status_accepted">Status accepted</string>
+    <string name="title_images_not_null">Title Images not null</string>
 </resources>

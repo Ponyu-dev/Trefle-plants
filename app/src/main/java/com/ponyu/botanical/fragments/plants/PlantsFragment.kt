@@ -64,6 +64,17 @@ class PlantsFragment : Fragment() {
             })
 
         binding.btnRetry.setOnClickListener { plantsAdapter.retry() }
+
+        binding.btnFilter.setOnClickListener {
+            /*val filterData = FilterData(
+                sortType = viewModel.uiState.value.filter.sortType,
+                subregions = viewModel.uiState.value.filter.subregions
+            )
+            findNavController().navigate(
+                CountriesFragmentDirections.actionCountriesFragmentToFilterBottomSheet(filterData)
+            )*/
+        }
+
         setAdapter()
         collectLast(listPlantsViewModel.plantItemsUiStates, ::setUsers)
 

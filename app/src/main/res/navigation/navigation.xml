@@ -3,17 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/plantsFragment">
+    app:startDestination="@id/plantsNavGraph">
 
-    <fragment
-        android:id="@+id/plantsFragment"
-        android:name="com.ponyu.botanical.fragments.plants.PlantsFragment"
-        android:label="personal_info_fragment"
-        tools:layout="@layout/fragment_plants" >
-        <action
-            android:id="@+id/action_plantsFragment_to_plantInfoFragment"
-            app:destination="@id/plantInfoFragment" />
-    </fragment>
+    <navigation
+        android:id="@+id/plantsNavGraph"
+        android:label="CountriesNavGraph"
+        app:startDestination="@id/plantsFragment">
+        <fragment
+            android:id="@+id/plantsFragment"
+            android:name="com.ponyu.botanical.fragments.plants.PlantsFragment"
+            android:label="personal_info_fragment"
+            tools:layout="@layout/fragment_plants" >
+            <action
+                android:id="@+id/action_plantsFragment_to_plantInfoFragment"
+                app:destination="@id/plantInfoFragment" />
+            <action
+                android:id="@+id/action_CountriesFragment_to_filterBottomSheet"
+                app:destination="@id/filterBottomSheet" />
+        </fragment>
+        <dialog
+            android:id="@+id/filterBottomSheet"
+            android:name="com.ponyu.botanical.fragments.filter.FilterBottomSheetFragment"
+            android:label="@string/countries_filter_title"
+            tools:layout="@layout/fragment_filter_bottom_sheet" >
+            <argument
+                android:name="filter_data"
+                app:argType="com.ponyu.botanical.fragments.filter.FilterData"
+                app:nullable="true" />
+        </dialog>
+    </navigation>
 
     <fragment
         android:id="@+id/plantInfoFragment"
