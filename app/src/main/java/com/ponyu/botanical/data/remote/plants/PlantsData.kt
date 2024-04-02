@@ -2,7 +2,7 @@ package com.ponyu.botanical.data.remote.plants
 
 import com.google.gson.annotations.SerializedName
 
-data class ListPlants(
+data class PlantsResponse(
     @SerializedName("data")
     val data: List<PlantData>,
     @SerializedName("meta")

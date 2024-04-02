@@ -2,9 +2,10 @@ package com.ponyu.botanical.data.remote
 
 import com.ponyu.botanical.BuildConfig
 import com.ponyu.botanical.data.remote.plant.PlantInfo
-import com.ponyu.botanical.data.remote.plants.ListPlants
+import com.ponyu.botanical.data.remote.plants.PlantsResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface PlantsService {
 
@@ -15,7 +16,9 @@ interface PlantsService {
      * [See api](https://docs.trefle.io/reference/#tag/Plants/operation/listPlants)
      */
     @GET("/api/v1/plants?token=${BuildConfig.TREFLE_API_KEY}")
-    suspend fun getPlants() : ListPlants
+    suspend fun getPlants(
+        @Query("page") page: Int
+    ) : PlantsResponse
 
     /**
      * [See documentation](https://docs.trefle.io/docs/advanced/plants-fields)

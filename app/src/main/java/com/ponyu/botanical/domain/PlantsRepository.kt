@@ -1,7 +1,9 @@
 package com.ponyu.botanical.domain
 
-import com.ponyu.botanical.data.remote.plants.ListPlants
+import androidx.paging.PagingData
+import com.ponyu.botanical.data.remote.plants.PlantData
+import kotlinx.coroutines.flow.Flow
 
 interface PlantsRepository {
-    suspend fun loadListPlants() : Pair<Boolean, ListPlants?>
+    fun getPlants() : Flow<PagingData<PlantData>>
 }

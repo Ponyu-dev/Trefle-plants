@@ -9,6 +9,8 @@
     <string name="unknown"><font color ="colorSurfaceVariant"><u>Unknown</u></font></string>
     <string name="visible">Visible</string>
     <string name="invisible">Invisible</string>
+    <string name="retry">Retry</string>
+    <string name="something_went_wrong">Something went wrong.</string>
 
     <string name="ligneous_type">Ligneous type: %1$s</string>
     <string name="average_height">Average height: %1$s cm.</string>

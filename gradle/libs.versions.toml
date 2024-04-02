@@ -18,6 +18,8 @@ navigation-ktx = "2.7.7"
 hilt = "2.50"
 retrofit = "2.9.0"
 
+paging = "3.2.1"
+
 glide = "4.16.0"
 lifecycleLivedataKtx = "2.7.0"
 lifecycleViewmodelKtx = "2.7.0"
@@ -38,6 +40,8 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment-ktx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-ktx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-ktx" }
+
+androidx-paging = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
 
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }

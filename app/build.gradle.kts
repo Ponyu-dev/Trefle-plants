@@ -48,6 +48,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
         buildConfig = true
     }
 }
@@ -62,6 +63,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.recyclerview)
     kapt(libs.hilt.android.compiler)
+
+    implementation(libs.androidx.paging)
 
     implementation(libs.retrofit2.converter.gson)
     implementation(libs.retrofit2)

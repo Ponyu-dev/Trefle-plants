@@ -1,73 +1,59 @@
 package com.ponyu.botanical.fragments.plants
 
+import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
+import androidx.paging.PagingData
 import com.ponyu.botanical.R
 import com.ponyu.botanical.databinding.FragmentPlantsBinding
-import com.ponyu.botanical.fragments.plant_detail.PlantInfoFragment
 import com.ponyu.botanical.fragments.plants.adapter.PlantsAdapter
+import com.ponyu.botanical.ui.PlantItemUiState
+import com.ponyu.botanical.ui.PlantsUiState
+import com.ponyu.botanical.ui.footer.FooterAdapter
+import com.ponyu.botanical.util.ext.collect
+import com.ponyu.botanical.util.ext.collectLast
+import com.ponyu.botanical.util.ext.executeWithAction
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class PlantsFragment : Fragment() {
-
+    private lateinit var binding: FragmentPlantsBinding
     private val listPlantsViewModel: ListPlantsViewModel by viewModels()
 
-    private var binding: FragmentPlantsBinding? = null
-    private inline fun withBinding(block: FragmentPlantsBinding.() -> Unit) {
-        binding?.block()
+    @Inject
+    lateinit var plantsAdapter: PlantsAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = DataBindingUtil.setContentView(this.activity as Activity, R.layout.fragment_plants)
+        binding.btnRetry.setOnClickListener { plantsAdapter.retry() }
+        setAdapter()
+        collectLast(listPlantsViewModel.plantItemsUiStates, ::setUsers)
     }
 
-    private val plantsAdapter = PlantsAdapter {
-        findNavController().navigate(
-            R.id.action_plantsFragment_to_plantInfoFragment,
-            Bundle().apply { putInt("plantId", it) }
+    private fun setAdapter() {
+        collect(flow = plantsAdapter.loadStateFlow
+            .distinctUntilChangedBy { it.source.refresh }
+            .map { it.refresh },
+            action = ::setUsersUiState
         )
+        binding.recyclerViewPlants.adapter = plantsAdapter.withLoadStateFooter(FooterAdapter(plantsAdapter::retry))
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentPlantsBinding.inflate(inflater)
-        return binding!!.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        withBinding {
-            viewLifecycleOwner.lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    listPlantsViewModel.listPlants.collect {
-                        plantsAdapter.submitList(it)
-                    }
-                }
-            }
-
-            plantsRecyclerView.adapter = plantsAdapter
+    private fun setUsersUiState(loadState: LoadState) {
+        binding.executeWithAction {
+            plantsUiState = PlantsUiState(loadState)
         }
-
-        listPlantsViewModel.load()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
-    }
-
-    companion object {
-        private const val TAG = "PlantsFragment"
+    private suspend fun setUsers(userItemsPagingData: PagingData<PlantItemUiState>) {
+        plantsAdapter.submitData(userItemsPagingData)
     }
 }
