@@ -6,7 +6,7 @@
     <data>
         <variable
             name="plantItemUiState"
-            type="com.ponyu.botanical.ui.PlantItemUiState" />
+            type="com.ponyu.botanical.fragments.plants.adapter.PlantItemUiState" />
     </data>
 
     <androidx.cardview.widget.CardView

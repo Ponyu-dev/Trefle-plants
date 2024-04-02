@@ -2,7 +2,6 @@ package com.ponyu.botanical.fragments.plants.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.ponyu.botanical.databinding.ViewHolderPlantDetailBinding
-import com.ponyu.botanical.ui.PlantItemUiState
 import com.ponyu.botanical.util.ext.executeWithAction
 
 class PlantViewHolder (

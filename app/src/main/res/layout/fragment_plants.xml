@@ -15,15 +15,15 @@
         android:layout_height="match_parent"
         tools:context=".fragments.plants.PlantsFragment">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppbar"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        <SearchView
+            android:id="@+id/searchViewPlants"
             android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:queryHint="Search plants here..."
+            android:iconifiedByDefault="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:title="Plants" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPlants"
@@ -38,7 +38,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/topAppbar" />
+            app:layout_constraintTop_toBottomOf="@id/searchViewPlants" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -48,7 +48,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/topAppbar" />
+            app:layout_constraintTop_toBottomOf="@id/searchViewPlants" />
 
         <Button
             android:id="@+id/btnRetry"
@@ -59,7 +59,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/topAppbar" />
+            app:layout_constraintTop_toBottomOf="@id/searchViewPlants" />
 
         <TextView
             android:id="@+id/tvError"

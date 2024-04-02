@@ -5,13 +5,20 @@ import androidx.paging.PagingState
 import com.ponyu.botanical.data.remote.PlantsService
 
 class PlantsPagingDataSource(
-    private val plantsService: PlantsService
+    private val plantsService: PlantsService,
+    private val plantFilterModel: PlantFilterModel
 ) : PagingSource<Int, PlantData>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PlantData> {
+    override suspend fun load(
+        params: LoadParams<Int>
+    ): LoadResult<Int, PlantData> {
         val page = params.key ?: STARTING_PAGE_INDEX
         try {
-            val response = plantsService.getPlants(page)
+            val response = when {
+                plantFilterModel.searchQuery.isNullOrEmpty() -> plantsService.getPlants(page)
+                else -> plantsService.searchPlants(page, plantFilterModel.searchQuery)
+            }
+
             //TODO it is necessary to add so that nextkey does not exceed the last page
             // this can be found in the model "links": {
             //        "first": "/api/v1/species?page=1",
@@ -20,6 +27,7 @@ class PlantsPagingDataSource(
             //        "prev": "/api/v1/species?page=1",
             //        "self": "/api/v1/species?page=2"
             //    },
+
             return LoadResult.Page(
                 data = response.data,
                 prevKey = if (page == STARTING_PAGE_INDEX) null else page.minus(1),

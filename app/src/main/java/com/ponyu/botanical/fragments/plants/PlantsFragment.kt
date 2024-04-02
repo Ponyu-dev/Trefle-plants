@@ -1,9 +1,11 @@
 package com.ponyu.botanical.fragments.plants
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -12,8 +14,8 @@ import androidx.paging.LoadState
 import androidx.paging.PagingData
 import com.ponyu.botanical.R
 import com.ponyu.botanical.databinding.FragmentPlantsBinding
+import com.ponyu.botanical.fragments.plants.adapter.PlantItemUiState
 import com.ponyu.botanical.fragments.plants.adapter.PlantsAdapter
-import com.ponyu.botanical.ui.PlantItemUiState
 import com.ponyu.botanical.ui.PlantsUiState
 import com.ponyu.botanical.ui.footer.FooterAdapter
 import com.ponyu.botanical.util.ext.collect
@@ -48,6 +50,18 @@ class PlantsFragment : Fragment() {
             false
         )
 
+        binding.searchViewPlants.setOnQueryTextListener(
+            object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    listPlantsViewModel.search(query)
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    listPlantsViewModel.search(newText)
+                    return false
+                }
+            })
 
         binding.btnRetry.setOnClickListener { plantsAdapter.retry() }
         setAdapter()

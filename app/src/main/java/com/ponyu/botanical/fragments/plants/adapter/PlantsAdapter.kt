@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.databinding.DataBindingUtil.inflate
 import com.ponyu.botanical.R
 import com.ponyu.botanical.databinding.ViewHolderPlantDetailBinding
-import com.ponyu.botanical.ui.PlantItemUiState
 
 class PlantsAdapter (
     private val onClick: (Int) -> Unit

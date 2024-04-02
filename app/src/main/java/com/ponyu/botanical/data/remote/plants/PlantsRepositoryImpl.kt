@@ -11,12 +11,14 @@ import javax.inject.Inject
 class PlantsRepositoryImpl @Inject constructor(
     private val service: PlantsService
 ) : PlantsRepository {
-    override fun getPlants(): Flow<PagingData<PlantData>> {
+    override fun getPlants(
+        plantFilterModel: PlantFilterModel
+    ): Flow<PagingData<PlantData>> {
         return Pager(
             config = PagingConfig (
                 pageSize = NETWORK_PAGE_SIZE
             ),
-            pagingSourceFactory = { PlantsPagingDataSource(service) }
+            pagingSourceFactory = { PlantsPagingDataSource(service, plantFilterModel) }
         ).flow
     }
 
