@@ -55,7 +55,7 @@ class PlantImagesFragment : Fragment() {
 
     private fun updateImages(images: Images){
         withBinding {
-            /*if(images.flower.isNullOrEmpty()){
+            if(images.flower.isNullOrEmpty()){
                 viewStubPlantImageFlower.visibility = View.VISIBLE
             } else {
                 viewStubPlantImageFlower.visibility = View.GONE
@@ -95,7 +95,7 @@ class PlantImagesFragment : Fragment() {
             } else {
                 viewStubPlantImageOther.visibility = View.GONE
                 recyclerViewPlantImageOther.adapter = getPlantImageAdapter(images.other)
-            }*/
+            }
         }
     }
 
