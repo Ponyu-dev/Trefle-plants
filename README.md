@@ -5,17 +5,14 @@ This project was created for the thesis project upon completion of the OTUS (Bas
 
 The free [Trefle API](https://trefle.io) is used for this.
 
-### An example of using the program.
-![flow](/images/github_video.gif)
-
 ### Features
 - Search by plant name
 - View plant details
   - Basic information ✔️
   - Showing images flower, leaf, habit, fruit, bark, other ✔️
   - Information about growing in areas related to agriculture **work in progress** 🚧
-- Sort alphabetically (**work in progress** 🚧)
-- Filter by region (**work in progress** 🚧)
+- Sort by (**work in progress** 🚧)
+- Filter by (**work in progress** 🚧)
 
 ### Architecture
 This app uses the single-activity MVVM architecture.
